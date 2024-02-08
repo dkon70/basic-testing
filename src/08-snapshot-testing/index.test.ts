@@ -12,11 +12,11 @@ describe('generateLinkedList', () => {
           value: 3,
           next: {
             value: null,
-            next: null
-          }
-        }
-      }
-    }
+            next: null,
+          },
+        },
+      },
+    };
     expect(res).toStrictEqual(expectedRes);
   });
 

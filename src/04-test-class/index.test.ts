@@ -14,7 +14,9 @@ describe('BankAccount', () => {
   test('should throw error when transferring more than balance', () => {
     const firstAccount = getBankAccount(100);
     const secondAccount = getBankAccount(100000);
-    expect(() => firstAccount.transfer(1000, secondAccount)).toThrow('Insufficient funds');
+    expect(() => firstAccount.transfer(1000, secondAccount)).toThrow(
+      'Insufficient funds',
+    );
   });
 
   test('should throw error when transferring to the same account', () => {
@@ -45,7 +47,7 @@ describe('BankAccount', () => {
   test('fetchBalance should return number in case if request did not failed', async () => {
     const account = getBankAccount(100);
     jest.spyOn(account, 'fetchBalance').mockReturnValue(Promise.resolve(100));
-    expect(typeof await account.fetchBalance()).toBe('number');
+    expect(typeof (await account.fetchBalance())).toBe('number');
   });
 
   test('should set new balance if fetchBalance returned number', async () => {
@@ -58,6 +60,8 @@ describe('BankAccount', () => {
   test('should throw SynchronizationFailedError if fetchBalance returned null', async () => {
     const account = getBankAccount(100);
     jest.spyOn(account, 'fetchBalance').mockReturnValue(Promise.resolve(null));
-    await expect(account.synchronizeBalance()).rejects.toThrow('Synchronization failed');
+    await expect(account.synchronizeBalance()).rejects.toThrow(
+      'Synchronization failed',
+    );
   });
 });

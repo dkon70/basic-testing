@@ -18,7 +18,9 @@ describe('throttledGetDataFromApi', () => {
     mockedAxios.create.mockReturnValue(mockedAxios);
     mockedAxios.get.mockReturnValue(Promise.resolve(response));
     await throttledGetDataFromApi('/test');
-    expect(mockedAxios.create).toHaveBeenCalledWith({ baseURL: 'https://jsonplaceholder.typicode.com' });
+    expect(mockedAxios.create).toHaveBeenCalledWith({
+      baseURL: 'https://jsonplaceholder.typicode.com',
+    });
   });
 
   test('should perform request to correct provided url', async () => {

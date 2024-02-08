@@ -2,12 +2,12 @@ import { simpleCalculator } from './index';
 
 describe('simpleCalculator tests', () => {
   test('should add two numbers', () => {
-    const res = simpleCalculator({ a: 2, b: 3, action: '+'});
+    const res = simpleCalculator({ a: 2, b: 3, action: '+' });
     expect(res).toBe(5);
   });
 
   test('should subtract two numbers', () => {
-    const res = simpleCalculator({ a: 5, b: 2, action: '-'});
+    const res = simpleCalculator({ a: 5, b: 2, action: '-' });
     expect(res).toBe(3);
   });
 
